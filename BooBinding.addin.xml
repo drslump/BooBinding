@@ -1,0 +1,104 @@
+<Addin namespace   = "MonoDevelop"
+       id          = "BooBinding"
+       name        = "Boo Language Binding"
+       author      = "Peter Johanson, Rodrigo B. de Oliveira, Iván -DrSlump- Montes"
+       copyright   = "GPL"
+       url         = "http://boo.codehaus.org"
+       description = "Boo Language Binding"
+       category    = "Language bindings"
+       version     = "4.0.0">
+
+    <Runtime>
+        <Import assembly = "BooBinding.dll" />
+        <!-- Runtime dependencies -->
+        <Import assembly = "libs/Boo.Lang.dll" />
+        <Import assembly = "libs/Boo.Lang.Parser.dll" />
+        <Import assembly = "libs/Boo.Lang.Compiler.dll" />
+    </Runtime>    
+
+    <!-- Dependencies>
+        <Addin id="::MonoDevelop.Ide" version="4.0"/>
+        <Addin id="::MonoDevelop.Core" version="4.0"/>
+        <Addin id="::MonoDevelop.SourceEditor2" version="4.0" />
+    </Dependencies -->
+    <Dependencies>
+        <Addin id="Ide" version = "4.0" />
+        <Addin id="Core" version = "4.0" />
+        <Addin id="SourceEditor2" version = "4.0" />
+    </Dependencies>
+
+    <Extension path="/MonoDevelop/Core/SupportPackages">
+        <Condition id="PackageNotInstalled" name="mono-boo" version="0.9.7">
+            <Package name="boo" version="0.9.7" clrVersion="Default">
+                <Assembly file="boo/Boo.Lang.dll" />
+                <Assembly file="boo/Boo.Lang.Extensions.dll" />
+                <Assembly file="boo/Boo.Lang.Useful.dll" />
+                <Assembly file="boo/Boo.Lang.Compiler.dll" />
+                <Assembly file="boo/Boo.Lang.Parser.dll" />
+                <Assembly file="boo/Boo.Lang.PatternMatching.dll" />
+                <Assembly file="boo/Boo.Lang.CodeDom.dll" />
+                <Assembly file="boo/Boo.Lang.Interpreter.dll" />
+            </Package>
+        </Condition>
+    </Extension>
+
+    <Extension path = "/MonoDevelop/ProjectModel/MSBuildItemTypes">
+        <DotNetProject language="Boo" extension="booproj" guid="{B3672514-7503-4B01-B4B4-B44E87061EA2}"/>
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Ide/FileFilters">
+        <FileFilter
+            id = "Boo"
+            insertbefore = "AllFiles"
+            _label = "Boo Files"
+            extensions = "*.boo"/>
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Core/MimeTypes">
+        <MimeType id="text/x-boo" icon="md-boo-file" isText="true" _description="Boo source code">
+            <File pattern="*.boo" />
+        </MimeType>
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Core/StockIcons">
+        <StockIcon stockid="md-boo-file" resource="BooFile.png" />
+        <StockIcon stockid="md-boo-project" resource="BooProjectStockIcon.png" />
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Ide/FileTemplates">
+        <FileTemplate id="EmptyBooFile" resource="EmptyBooFile.xft.xml"/>
+    </Extension>
+
+    <Extension path = "/MonoDevelop/Ide/ProjectTemplates">
+        <ProjectTemplate id="BooLibraryProject" resource="ConsoleProject.xpt.xml"/>
+        <ProjectTemplate id="BooLibraryProject" resource="LibraryProject.xpt.xml"/>
+    </Extension>
+
+    <Extension path="/MonoDevelop/ProjectModel/SerializableClasses">
+        <DataType class="BooBinding.Project.BooCompilerParameters" />
+        <DataType class="BooBinding.Project.BooProjectParameters" />
+    </Extension>
+
+    <!-- Language Binding -->
+    <Extension path="/MonoDevelop/ProjectModel/LanguageBindings">
+        <LanguageBinding id="Boo"
+                         supportedextensions=".boo"
+                         class="BooBinding.BooLanguageBinding" />
+    </Extension>
+
+    <!-- Syntax Highlighting -->
+    <Extension path = "/MonoDevelop/SourceEditor2/CustomModes">
+        <SyntaxMode mimeTypes="text/x-boo" class="BooBinding.Highlighting.BooSyntaxMode"/>
+    </Extension>
+
+    <!-- Code Parsing, Refactoring, Resolving -->
+    <Extension path = "/MonoDevelop/TypeSystem/Parser">
+        <Parser mimeType="text/x-boo" class="BooBinding.Parser.BooParser" />
+    </Extension>
+
+    <!-- Code Completion -->
+    <Extension path="/MonoDevelop/Ide/TextEditorExtensions">
+        <Class class="BooBinding.Editor.BooTextEditorExtension" />
+    </Extension>    
+
+</Addin>

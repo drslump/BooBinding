@@ -1,0 +1,34 @@
+# Library Dependencies
+-lib:lib/
+
+# References
+-r:/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/bin/Mono.TextEditor.dll
+-r:/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/bin/MonoDevelop.Core.dll
+-r:/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/bin/MonoDevelop.Ide.dll
+
+# Resources
+-embedres:BooBinding.addin.xml
+-embedres:Highlighting/BooSyntaxMode.xml
+
+-embedres:templates/ConsoleProject.xpt.xml
+-embedres:templates/EmptyBooFile.xft.xml
+-embedres:templates/LibraryProject.xpt.xml
+
+-embedres:icons/Boo.File.EmptyFile.png
+-embedres:icons/Boo.File.Form.png
+-embedres:icons/BooBinding.Base.png
+-embedres:icons/BooFile.png
+-embedres:icons/BooProjectDecoration.png
+-embedres:icons/BooProjectStockIcon.png
+
+# Target
+-o:BooBinding.dll
+
+# Sources
+BooLanguageBinding.boo
+Project/BooCompilerParameters.boo
+Project/BooProjectParameters.boo
+Editor/BooTextEditorExtension.boo
+Highlighting/BooSyntaxMode.boo
+Parser/BooParser.boo
+Parser/DomConversionVisitor.boo
