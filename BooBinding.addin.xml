@@ -89,8 +89,8 @@
     </Extension>
 
     <!-- Syntax Highlighting -->
-    <Extension path = "/MonoDevelop/SourceEditor2/CustomModes">
-        <SyntaxMode mimeTypes="text/x-boo" class="BooBinding.Highlighting.BooSyntaxMode"/>
+    <Extension path = "/MonoDevelop/SourceEditor2/SyntaxModes">
+        <Templates resource="BooSyntaxMode.xml" />
     </Extension>
 
     <!-- Code Parsing, Refactoring, Resolving -->

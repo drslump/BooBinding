@@ -29,6 +29,5 @@ BooLanguageBinding.boo
 Project/BooCompilerParameters.boo
 Project/BooProjectParameters.boo
 Editor/BooTextEditorExtension.boo
-Highlighting/BooSyntaxMode.boo
 Parser/BooParser.boo
 Parser/DomConversionVisitor.boo
