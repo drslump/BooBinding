@@ -40,10 +40,11 @@ class BooLanguageBinding(IDotNetLanguageBinding):
         return BooProjectParameters()
 
     def Compile(items as ProjectItemCollection, config as DotNetProjectConfiguration, cfgSelector as ConfigurationSelector, monitor as IProgressMonitor) as BuildResult:
-        br = BuildResult()
+        return null
+        # br = BuildResult()
         # Debug.Assert(compilerServices is not null)
         #return compilerServices.Compile (projectItems, configuration, configurationSelector, monitor)
-        return br
+        # return br
 
     def GetSupportedClrVersions() as (ClrVersion):
         return array(ClrVersion, (
