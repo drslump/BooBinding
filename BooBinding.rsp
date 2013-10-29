@@ -1,5 +1,5 @@
 # Library Dependencies
--lib:lib/
+-lib:boo/
 
 # References
 -r:/Applications/Xamarin Studio.app/Contents/MacOS/lib/monodevelop/bin/Mono.TextEditor.dll

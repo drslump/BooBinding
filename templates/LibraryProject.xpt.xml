@@ -26,15 +26,15 @@
 		<Project name = "${ProjectName}" directory = ".">
 			<Options LanguageName="Boo" Target="Library" />
 			<References>
-				<Reference type="Gac" refto="System, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-				<Reference type="Gac" refto="Boo.Lang, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67" />
-				<Reference type="Gac" refto="Boo.Lang.PatternMatching, Version=2.0.9.4, Culture=neutral, PublicKeyToken=32c39770e9a21a67" />
+				<Reference type="Gac" refto="System" />
+				<Reference type="Gac" refto="Boo.Lang" />
+				<Reference type="Gac" refto="Boo.Lang.PatternMatching" />
 			</References>
 			<Files>
 				<File name="Class1.boo" AddStandardHeader="True">
 				<![CDATA[namespace ${ProjectName}
 
-class Class1:
+class MyClass:
 	pass
 ]]></File>
 			</Files>

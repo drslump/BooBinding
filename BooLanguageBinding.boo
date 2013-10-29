@@ -12,7 +12,7 @@ from MonoDevelop.Projects import IDotNetLanguageBinding, ConfigurationParameters
                                  ProjectParameters, ProjectItemCollection, \
                                  DotNetProjectConfiguration, ConfigurationSelector, BuildResult
 
-from BooBinding.Project import BooCompilerParameters                                
+from BooBinding.Project import BooCompilerParameters, BooProjectParameters
 
 
 class BooLanguageBinding(IDotNetLanguageBinding):
@@ -32,17 +32,18 @@ class BooLanguageBinding(IDotNetLanguageBinding):
     BlockCommentEndTag as string:
         get: return "*/"
 
-    def CreateCompilationParameters(projectOptions as XmlElement) as ConfigurationParameters:
+    def CreateCompilationParameters(options as XmlElement) as ConfigurationParameters:
         parameters = BooCompilerParameters()
         return parameters
 
-    def CreateProjectParameters(projectOptions as XmlElement) as ProjectParameters:
-        return null
+    def CreateProjectParameters(options as XmlElement) as ProjectParameters:
+        return BooProjectParameters()
 
-    def Compile(projectItems as ProjectItemCollection, configuration as DotNetProjectConfiguration, configurationSelector as ConfigurationSelector, monitor as IProgressMonitor) as BuildResult:
+    def Compile(items as ProjectItemCollection, config as DotNetProjectConfiguration, cfgSelector as ConfigurationSelector, monitor as IProgressMonitor) as BuildResult:
+        br = BuildResult()
         # Debug.Assert(compilerServices is not null)
         #return compilerServices.Compile (projectItems, configuration, configurationSelector, monitor)
-        return null
+        return br
 
     def GetSupportedClrVersions() as (ClrVersion):
         return array(ClrVersion, (

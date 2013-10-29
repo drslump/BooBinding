@@ -1,17 +1,18 @@
 namespace BooBinding.Project
 
-from MonoDevelop.Projects import ConfigurationParameters
+from MonoDevelop.Projects import DotNetProjectParameters
 import MonoDevelop.Core.Serialization
 
 
-class BooProjectParameters(ConfigurationParameters):
+class BooProjectParameters(DotNetProjectParameters):
+""" Serializable type that is used for storing file build order """
 
-	# TODO
-	def AddDefineSymbol(symbol as string):
-		pass
-	# TODO
-	def HasDefineSymbol(symbol as string) as bool:
-		return false
-	# TODO
-	def RemoveDefineSymbol(symbol as string):
-		pass
+    buildOrder as (string)
+    BuildOrder as (string):
+        get:
+            if buildOrder != null:
+                return buildOrder
+            return array(string, 0)
+        set: 
+            _buildOrder = value
+

@@ -35,11 +35,11 @@ class BooCompilerParameters(ConfigurationParameters):
         get: return definesymbols
         set: definesymbols = value
 
-    def AddDefineSymbol(symbol as string):
+    override def AddDefineSymbol(symbol as string):
         DefineConstants += symbol + ";"
 
-    def HasDefineSymbol(symbol as string):
+    override def HasDefineSymbol(symbol as string):
         return DefineConstants.StartsWith(symbol + ';') or DefineConstants.Contains(';' + symbol + ';')
 
-    def RemoveDefineSymbol(symbol as string):
+    override def RemoveDefineSymbol(symbol as string):
         DefineConstants = DefineConstants.Replace(symbol + ";", "")
